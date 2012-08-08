@@ -24,12 +24,10 @@
 
     <toolbarpalette id="BrowserToolbarPalette">
         <toolbarbutton id="fx-button"
-            class="toolbarbutton-1 chromeclass-toolbar-additional"
-            type="menu"
-            label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
-            command="cmd_newNavigatorTab"
-            onclick="checkForMiddleClick(this, event);">
-<!--            onclick="FxButton.onClick();">-->
+                class="toolbarbutton-1 chromeclass-toolbar-additional"
+                type="menu"
+                label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
+                onclick="FxButton.onClick(event);">
             <menupopup id="fxmenu-popup" onpopupshowing="FxButton.update();" context="">
                 <menuitem id="fxmenu-newTab-popup"
                         label="&tabCmd.label;"

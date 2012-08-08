@@ -3,11 +3,19 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 var FxButton = {
-    DEBUG: true,
-    
+    DEBUG: false,
     firstStart: true,
     
     init: function() {
+    },
+    
+    onClick: function(e) {
+        var e = e || window.event;
+        if ('object' === typeof e) {
+            if (e.button == 1) {
+                document.getElementById("cmd_newNavigatorTab").doCommand("cmd_newNavigatorTab");
+            }
+        }
     },
     
     update: function() {
