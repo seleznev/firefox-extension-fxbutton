@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+%brandDTD;
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
+%browserDTD;
+<!ENTITY % aboutPrivateBrowsingDTD SYSTEM "chrome://browser/locale/aboutPrivateBrowsing.dtd">
+%aboutPrivateBrowsingDTD;
+<!ENTITY % debuggerDTD SYSTEM "chrome://browser/locale/devtools/debugger.dtd">
+%debuggerDTD;
+]>
+
+<!--<!ENTITY % scratchpadDTD SYSTEM "chrome://browser/locale/devtools/scratchpad.dtd">-->
+<!--%scratchpadDTD;-->
+
+<?xml-stylesheet href="chrome://fxbutton/skin/overlay.css" type="text/css"?>
+
+<overlay id="fxbutton" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml">
+
+    <script type="application/x-javascript" src="chrome://fxbutton/content/js/startup.js"/>
+
+    <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton id="fx-button"
+            class="toolbarbutton-1 chromeclass-toolbar-additional"
+            type="menu"
+            label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
+            command="cmd_newNavigatorTab"
+            onclick="checkForMiddleClick(this, event);">
+<!--            onclick="FxButton.onClick();">-->
+            <menupopup id="fxmenu-popup" onpopupshowing="FxButton.update();" context="">
+                <menuitem id="fxmenu-newTab-popup"
+                        label="&tabCmd.label;"
+                        command="cmd_newNavigatorTab"/>
+<!--                        key="key_newNavigatorTab"-->
+                        
+<!--                <menuitem id="fxmenu-openFile"-->
+<!--                        label="&openFileCmd.label;"-->
+<!--                        command="Browser:OpenFile"-->
+<!--                        key="openFileKb"/>-->
+                <menuitem id="fxmenu_privateBrowsing"
+                        class="menuitem-iconic menuitem-iconic-tooltip"
+                        label="&privateBrowsingCmd.start.label;"
+                        startlabel="&privateBrowsingCmd.start.label;"
+                        stoplabel="&privateBrowsingCmd.stop.label;"
+                        command="Tools:PrivateBrowsing"/>
+<!--                        key="key_privatebrowsing"-->
+                <menuitem id="fxmenu_offlineModeRecovery"
+                        label="&goOfflineCmd.label;"
+                        type="checkbox"
+                        observes="workOfflineMenuitemState"
+                        oncommand="BrowserOffline.toggleOfflineStatus();"/>
+                <menuseparator/>
+                <menuitem id="fxmenu-savePage"
+                    class="menuitem-tooltip"
+                    label="&savePageCmd.label;"
+                    command="Browser:SavePage"/>
+<!--                    key="key_savePage"-->
+                <menuseparator/>
+                <menuitem id="fxmenu-edit-cut"
+                    class="menuitem-iconic"
+                    label="&cutCmd.label;"
+                    command="cmd_cut"/>
+<!--                    key="key_cut"-->
+                <menuitem id="fxmenu-edit-copy"
+                    class="menuitem-iconic"
+                    label="&copyCmd.label;"
+                    command="cmd_copy"/>
+<!--                    key="key_copy"-->
+                <menuitem id="fxmenu-edit-paste"
+                    class="menuitem-iconic"
+                    label="&pasteCmd.label;"
+                    command="cmd_paste"/>
+<!--                    key="key_paste"-->
+                <menuseparator/>
+                <menu id="fxmenu_print"
+                            iconic="true"
+                            label="&printCmd.label;">
+                    <menupopup>
+                        <menuitem id="fxmenu_print_popup"
+                            class="menuitem-iconic"
+                            label="&printCmd.label;"
+                            command="cmd_print"/>
+<!--                            key="printKb"-->
+                        <menuitem id="fxmenu_printPreview"
+                            label="&printPreviewCmd.label;"
+                            command="cmd_printPreview"/>
+                        <menuitem id="fxmenu_printSetup"
+                            label="&printSetupCmd.label;"
+                            command="cmd_pageSetup"/>
+                    </menupopup>
+                </menu>
+                <menuseparator/>
+                <menuitem id="fxmenu_find"
+                          label="&findOnCmd.label;"
+                          accesskey="&findOnCmd.accesskey;"
+                          command="cmd_find"/>
+<!--                          key="key_find"-->
+                <menuseparator/>
+                <menu id="fxmenu_bookmarks"
+                        iconic="true"
+                        label="&bookmarksMenu.label;">
+                    <menupopup id="fxmenu_bookmarksPopup"
+                                placespopup="true"
+                                context="placesContext"
+                                openInTabs="children"
+                                oncommand="BookmarksEventHandler.onCommand(event, this.parentNode._placesView);"
+                                onclick="BookmarksEventHandler.onClick(event, this.parentNode._placesView);"
+                                onpopupshowing="BookmarksMenuButton.onPopupShowing(event);
+                                    if (!this.parentNode._placesView)
+                                    new PlacesMenu(event, 'place:folder=BOOKMARKS_MENU');"
+                                tooltip="bhTooltip"
+                                popupsinherittooltip="true">
+                        <menuitem id="fxmenu_bookmarkThisPage"
+                                class="menuitem-iconic"
+                                label="&bookmarkThisPageCmd.label;"
+                                command="Browser:AddBookmarkAs"/>
+<!--                                key="addBookmarkAsKb"-->
+<!--                        <menuitem id="fxmenu_subscribeToPage"-->
+<!--                                class="menuitem-iconic"-->
+<!--                                label="&subscribeToPageMenuitem.label;"-->
+<!--                                oncommand="return FeedHandler.subscribeToFeed(null, event);"-->
+<!--                                onclick="checkForMiddleClick(this, event);"-->
+<!--                                observes="singleFeedMenuitemState"/>-->
+<!--                        <menu id="fxmenu_subscribeToPageMenu"-->
+<!--                                class="menu-iconic"-->
+<!--                                label="&subscribeToPageMenupopup.label;"-->
+<!--                                observes="multipleFeedsMenuState">-->
+<!--                            <menupopup id="fxmenu_subscribeToPageMenupopup"-->
+<!--                                    onpopupshowing="return FeedHandler.buildFeedList(event.target);"-->
+<!--                                    oncommand="return FeedHandler.subscribeToFeed(null, event);"-->
+<!--                                    onclick="checkForMiddleClick(this, event);"/>-->
+<!--                        </menu>-->
+                        <menuseparator/>
+                        <menu id="fxmenu_bookmarksToolbar"
+                                placesanonid="toolbar-autohide"
+                                class="menu-iconic bookmark-item"
+                                label="&personalbarCmd.label;"
+                                container="true">
+                            <menupopup id="fxmenu_bookmarksToolbarPopup"
+                                placespopup="true"
+                                context="placesContext"
+                                onpopupshowing="if (!this.parentNode._placesView)
+                                                new PlacesMenu(event, 'place:folder=TOOLBAR');"/>
+                        </menu>
+                        <menuseparator/>
+                        <!-- Bookmarks menu items -->
+                        <menuseparator builder="end"
+                                class="hide-if-empty-places-result"/>
+<!--                        <menuitem id="fxmenu_unsortedBookmarks"-->
+<!--                                label="&appMenuUnsorted.label;"-->
+<!--                                oncommand="PlacesCommandHook.showPlacesOrganizer('UnfiledBookmarks');"-->
+<!--                                class="menuitem-iconic"/>-->
+                        <menuitem id="fxmenu_showAllBookmarks"
+                                label="&showAllBookmarks2.label;"
+                                command="Browser:ShowAllBookmarks"
+                                context=""/>
+<!--                                key="manBookmarkKb"-->
+                    </menupopup>
+                </menu>
+                <menu id="fxmenu_history"
+                        iconic="true"
+                        label="&historyMenu.label;"
+                        command="Browser:ShowAllHistory">
+                    <menupopup id="fxmenu_historyMenupopup"
+                            placespopup="true"
+                            oncommand="this.parentNode._placesView._onCommand(event);"
+                            onclick="checkForMiddleClick(this, event);"
+                            onpopupshowing="if (!this.parentNode._placesView)
+                                             new HistoryMenu(event);"
+                            tooltip="bhTooltip"
+                            popupsinherittooltip="true">
+                    <menuitem id="fxmenu_showAllHistory"
+                            label="&showAllHistoryCmd2.label;"
+                            command="Browser:ShowAllHistory"/>
+<!--                            key="showAllHistoryKb"-->
+                    <menuseparator/>
+                    <menuitem id="fxmenu_sanitizeHistory"
+                            label="&clearRecentHistory.label;"
+                            command="Tools:Sanitize"/>
+<!--                            key="key_sanitize"-->
+                    <menuseparator class="hide-if-empty-places-result"/>
+                    <menuitem id="fxmenu_sync-tabs"
+                            class="syncTabsMenuItem"
+                            label="&syncTabsMenu.label;"
+                            oncommand="BrowserOpenSyncTabs();"
+                            disabled="true"/>
+                    <menuitem id="fxmenu_restoreLastSession"
+                            class="restoreLastSession"
+                            label="&historyRestoreLastSession.label;"
+                            oncommand="restoreLastSession();"
+                            disabled="true"/>
+                    <menu id="fxmenu_recentlyClosedTabsMenu"
+                            class="recentlyClosedTabsMenu"
+                            label="&historyUndoMenu.label;"
+                            disabled="true">
+                    <menupopup id="fxmenu_recentlyClosedTabsMenupopup"
+                            onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoSubmenu();"/>
+                    </menu>
+                    <menu id="fxmenu_recentlyClosedWindowsMenu"
+                            class="recentlyClosedWindowsMenu"
+                            label="&historyUndoWindowMenu.label;"
+                            disabled="true">
+                    <menupopup id="fxmenu_recentlyClosedWindowsMenupopup"
+                            onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoWindowSubmenu();"/>
+                    </menu>
+                    <menuseparator/>
+                    </menupopup>
+                </menu>
+                <menuitem id="fxmenu_downloads"
+                        class="menuitem-tooltip"
+                        label="&downloads.label;"
+                        command="Tools:Downloads"/>
+<!--                        key="key_openDownloads"-->
+                <menuseparator/>
+                <menuitem id="fxmenu_addons"
+                        class="menuitem-iconic menuitem-iconic-tooltip"
+                        label="&addons.label;"
+                        command="Tools:Addons"/>
+<!--                        key="key_openAddons"-->
+                <menuseparator/>
+                
+                <menu id="fxmenu_webDeveloper" label="&appMenuWebDeveloper.label;">
+<!--                    <menupopup id="fxmenu_webDeveloper_popup">-->
+<!--                        <menuitem id="fxmenu_devToolbar"-->
+<!--                                label="&devToolbarMenu.label;"-->
+<!--                                type="checkbox" autocheck="false"-->
+<!--                                command="Tools:DevToolbar"-->
+<!--                                key="key_devToolbar"-->
+<!--                                disabled="true"/>-->
+<!--                        <menuitem id="fxmenu_webConsole"-->
+<!--                                label="&webConsoleCmd.label;"-->
+<!--                                type="checkbox" autocheck="false"-->
+<!--                                key="key_webConsole"-->
+<!--                                command="Tools:WebConsole"/>-->
+<!--                        <menuitem id="fxmenu_pageinspect"-->
+<!--                                label="&inspectMenu.label;"-->
+<!--                                type="checkbox" autocheck="false"-->
+<!--                                command="Tools:Inspect"-->
+<!--                                key="key_inspect"-->
+<!--                                disabled="true"/>-->
+<!--                        <menuitem id="fxmenu_responsiveUI"-->
+<!--                                label="&responsiveDesignTool.label;"-->
+<!--                                type="checkbox" autocheck="false"-->
+<!--                                command="Tools:ResponsiveUI"-->
+<!--                                key="key_responsiveUI"-->
+<!--                                disabled="true"/>-->
+<!--                        <menuitem id="fxmenu_debugger"-->
+<!--                                label="&debuggerMenu.label2;"-->
+<!--                                type="checkbox" autocheck="false"-->
+<!--                                command="Tools:Debugger"-->
+<!--                                key="key_debugger"-->
+<!--                                disabled="true"/>-->
+<!--                        <menuitem id="fxmenu_remoteDebugger"-->
+<!--                                label="&remoteDebuggerMenu.label;"-->
+<!--                                command="Tools:RemoteDebugger"-->
+<!--                                disabled="true" hidden="false"/>-->
+<!--                        <menuitem id="fxmenu_chromeDebugger"-->
+<!--                                label="&chromeDebuggerMenu.label;"-->
+<!--                                command="Tools:ChromeDebugger"-->
+<!--                                disabled="true" hidden="false"/>-->
+<!--                        <menuitem id="fxmenu_scratchpad"-->
+<!--                                label="&scratchpad.label;"-->
+<!--                                command="Tools:Scratchpad"-->
+<!--                                key="key_scratchpad"-->
+<!--                                disabled="true"/>-->
+<!--                        <menuitem id="fxmenu_styleeditor"-->
+<!--                                label="&styleeditor.label;"-->
+<!--                                type="checkbox" autocheck="false"-->
+<!--                                command="Tools:StyleEditor"-->
+<!--                                key="key_styleeditor"-->
+<!--                                disabled="true"/>-->
+<!--                        <menuitem id="fxmenu_pageSource" -->
+<!--                                label="&pageSourceCmd.label;"-->
+<!--                                key="key_viewSource"-->
+<!--                                command="View:PageSource"/>-->
+<!--                        <menuitem id="fxmenu_errorConsole"-->
+<!--                                label="&errorConsoleCmd.label;"-->
+<!--                                key="key_errorConsole"-->
+<!--                                oncommand="toJavaScriptConsole();"/>-->
+<!--                        <menuseparator/>-->
+<!--                        <menuitem id="fxmenu_getMoreDevtools"-->
+<!--                                label="&getMoreDevtoolsCmd.label;"-->
+<!--                                oncommand="openUILinkIn('https://addons.mozilla.org/firefox/collections/mozilla/webdeveloper/', 'tab');"/>-->
+<!--                        <menuseparator/>-->
+<!--                        <menuitem label="&goOfflineCmd.label;"-->
+<!--                                type="checkbox"-->
+<!--                                observes="workOfflineMenuitemState"-->
+<!--                                oncommand="BrowserOffline.toggleOfflineStatus();"/>-->
+<!--                    </menupopup>-->
+                </menu>
+                
+                <menuitem id="fxmenu_pageSource"
+                        label="&pageSourceCmd.label;"
+                        command="View:PageSource"/>
+<!--                        key="key_viewSource"-->
+                <menuseparator/>
+                <menuitem id="fxmenu-quit"
+                        class="menuitem-iconic"
+                        label="&quitApplicationCmd.label;"
+                        command="cmd_quitApplication"/>
+<!--                        key="key_quitApplication"-->
+            </menupopup>
+        </toolbarbutton>
+    </toolbarpalette>
+
+</overlay>
+
