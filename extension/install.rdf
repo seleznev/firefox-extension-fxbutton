@@ -20,7 +20,7 @@
 
     <!-- Front End MetaData -->
     <em:name>FxButton</em:name>
-    <em:description>Add button with application's menu (like GNOME Web) and hide the default "Firefox" buttons.</em:description>
+    <em:description>Add button with appmenu (like GNOME Web) and hide the default "Firefox" buttons.</em:description>
     <em:creator>Alexander Seleznev</em:creator>
     <em:contributor>Alexander Seleznev</em:contributor>
     <em:targetPlatform>Linux</em:targetPlatform>
