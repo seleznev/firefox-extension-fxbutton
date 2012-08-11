@@ -24,6 +24,7 @@
                 class="toolbarbutton-1 chromeclass-toolbar-additional"
                 type="menu"
                 label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
+                style="list-style-image: url(chrome://branding/content/icon16.png)"
                 onclick="FxButton.onClick(event);">
             <menupopup id="fxmenu-popup" onpopupshowing="FxButton.update();" context="">
                 <menuitem id="fxmenu-newTab-popup"

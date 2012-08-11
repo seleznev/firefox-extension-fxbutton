@@ -4,23 +4,13 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* Hidden default appmenu button */
-#appmenu-toolbar-button {
+/* Toolbar Button */
+#fx-button > .toolbarbutton-menu-dropmarker {
   display: none;
 }
 
-/* Toolbar Button */
-#fx-button {
-/*  list-style-image: url("moz-icon://stock/firefox?size=toolbar");*/
-  list-style-image: url("chrome://branding/content/icon16.png");
-}
-
-toolbar[iconsize="small"] #fx-button {
-/*  list-style-image: url("moz-icon://stock/firefox?size=menu");*/
-  list-style-image: url("chrome://branding/content/icon16.png");
-}
-
-#fx-button > .toolbarbutton-menu-dropmarker {
+/* Hidden default appmenu button */
+#appmenu-toolbar-button {
   display: none;
 }
 
