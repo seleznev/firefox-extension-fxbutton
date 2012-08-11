@@ -4,6 +4,7 @@
 
 var FxButton = {
     DEBUG: false,
+    
     firstStart: true,
     
     init: function() {
@@ -12,14 +13,14 @@ var FxButton = {
     onClick: function(e) {
         var e = e || window.event;
         if ('object' === typeof e) {
-            if (e.button == 1) {
+            if (e.button == 1 && e.target.id == "fx-button") {
                 document.getElementById("cmd_newNavigatorTab").doCommand("cmd_newNavigatorTab");
             }
         }
     },
     
     update: function() {
-        // FIXME: This Implementation is not good.
+        // FIXME: This implementation is not good.
         if (document.documentElement.hasAttribute("privatebrowsingmode")) {
             document.getElementById("fxmenu_privateBrowsing").label = document.getElementById("fxmenu_privateBrowsing").getAttribute("stoplabel");
         }
@@ -42,14 +43,9 @@ var FxButton = {
         
         items = FxButton.fxmenu_webdev.getElementsByTagName('*');
         for (var i=0; i<items.length; i++) {
-            items[i].id = items[i].id.replace(/^appmenu/, "fxmenu");
+            items[i].id = "fxmenu" + items[i].id.replace(/^appmenu/, "");
         }
-        
-        //document.getElementById("fxmenu_webDeveloper_popup").label = document.getElementById("appmenu_webDeveloper_popup").label;
-        
     },
-    
-    
 }
 
-window.addEventListener("load", function(e) { FxButton.init(); }, false);
+window.addEventListener("load", FxButton.init);
