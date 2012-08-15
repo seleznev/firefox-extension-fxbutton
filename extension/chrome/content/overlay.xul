@@ -5,6 +5,8 @@
 %brandDTD;
 <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
 %browserDTD;
+<!ENTITY % baseMenuOverlayDTD SYSTEM "chrome://browser/locale/baseMenuOverlay.dtd">
+%baseMenuOverlayDTD;
 <!ENTITY % aboutPrivateBrowsingDTD SYSTEM "chrome://browser/locale/aboutPrivateBrowsing.dtd">
 %aboutPrivateBrowsingDTD;
 <!ENTITY % debuggerDTD SYSTEM "chrome://browser/locale/devtools/debugger.dtd">
@@ -292,6 +294,37 @@
                         label="&pageSourceCmd.label;"
                         command="View:PageSource"/>
 <!--                        key="key_viewSource"-->
+                <menuseparator/>
+                
+                
+                <menu id="fxmenu_help" label="&helpMenu.label;">
+                    <menupopup id="fxmenu_helpMenupopup">
+                        <menuitem id="fxmenu_openHelp"
+                                label="&helpMenu.label;"
+                                oncommand="openHelpLink('firefox-help')"
+                                onclick="checkForMiddleClick(this, event);"/>
+                        <menuitem id="fxmenu_gettingStarted"
+                                label="&appMenuGettingStarted.label;"
+                                oncommand="gBrowser.loadOneTab('http://www.mozilla.com/firefox/central/', {inBackground: false});"
+                                onclick="checkForMiddleClick(this, event);"/>
+                        <menuitem id="fxmenu_troubleshootingInfo"
+                                label="&helpTroubleshootingInfo.label;"
+                                oncommand="openTroubleshootingPage()"
+                                onclick="checkForMiddleClick(this,event);"/>
+                        <menuitem id="fxmenu_feedbackPage"
+                                label="&helpFeedbackPage.label;"
+                                oncommand="openFeedbackPage()"
+                                onclick="checkForMiddleClick(this, event);"/>
+                        <menuseparator/>
+                        <menuitem id="fxmenu_safeMode"
+                                label="&appMenuSafeMode.label;"
+                                oncommand="safeModeRestart();"/>
+                        <menuseparator/>
+                        <menuitem id="fxmenu_about"
+                                label="&aboutProduct.label;"
+                                oncommand="openAboutDialog();"/>
+                    </menupopup>
+                </menu>
                 <menuseparator/>
                 <menuitem id="fxmenu-quit"
                         class="menuitem-iconic"
