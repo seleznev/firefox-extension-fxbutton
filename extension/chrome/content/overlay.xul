@@ -326,6 +326,10 @@
                     </menupopup>
                 </menu>
                 <menuseparator/>
+                <menuitem id="fxmenu_preferences"
+                        label="&preferencesCmdUnix.label;"
+                        oncommand="openPreferences();"/>
+                <menuseparator/>
                 <menuitem id="fxmenu-quit"
                         class="menuitem-iconic"
                         label="&quitApplicationCmd.label;"
