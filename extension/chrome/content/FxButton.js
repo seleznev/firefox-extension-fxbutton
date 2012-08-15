@@ -19,7 +19,7 @@ var FxButton = {
         }
     },
     
-    update: function() {
+    onPopupShowing: function() {
         // FIXME: This implementation is not good.
         if (document.documentElement.hasAttribute("privatebrowsingmode")) {
             document.getElementById("fxmenu_privateBrowsing").label = document.getElementById("fxmenu_privateBrowsing").getAttribute("stoplabel");

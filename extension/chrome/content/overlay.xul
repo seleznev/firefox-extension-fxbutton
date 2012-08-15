@@ -28,7 +28,7 @@
                 label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
                 style="list-style-image: url(chrome://branding/content/icon16.png)"
                 onclick="FxButton.onClick(event);">
-            <menupopup id="fxmenu-popup" onpopupshowing="FxButton.update();" context="">
+            <menupopup id="fxmenu-popup" onpopupshowing="FxButton.onPopupShowing();" context="">
                 <menuitem id="fxmenu-newTab-popup"
                         label="&tabCmd.label;"
                         command="cmd_newNavigatorTab"/>
