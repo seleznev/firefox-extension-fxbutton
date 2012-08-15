@@ -21,12 +21,12 @@ var FxButton = {
     
     onPopupShowing: function() {
         // FIXME: This implementation is not good.
-        if (document.documentElement.hasAttribute("privatebrowsingmode")) {
-            document.getElementById("fxmenu_privateBrowsing").label = document.getElementById("fxmenu_privateBrowsing").getAttribute("stoplabel");
-        }
-        else {
-            document.getElementById("fxmenu_privateBrowsing").label = document.getElementById("fxmenu_privateBrowsing").getAttribute("startlabel");
-        }
+        // https://developer.mozilla.org/en-US/docs/Supporting_private_browsing_mode
+        var fxmenu_pb = document.getElementById("fxmenu_privateBrowsing");
+        if (document.documentElement.hasAttribute("privatebrowsingmode"))
+            fxmenu_pb.label = fxmenu_pb.getAttribute("stoplabel");
+        else
+            fxmenu_pb.label = fxmenu_pb.getAttribute("startlabel");
         
         if (FxButton.firstStart) {
             FxButton.updateWebDeveloper();
