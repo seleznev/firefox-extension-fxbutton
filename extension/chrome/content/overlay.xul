@@ -92,7 +92,7 @@
                 </menu>
                 <menuseparator/>
                 <menuitem id="fxmenu_find"
-                          label="&findOnCmd.label;"
+                          label="&appMenuFind.label;"
                           accesskey="&findOnCmd.accesskey;"
                           command="cmd_find"/>
 <!--                          key="key_find"-->
@@ -219,7 +219,10 @@
                         command="Tools:Addons"/>
 <!--                        key="key_openAddons"-->
                 <menuseparator/>
-                
+                <menuitem id="fxmenu_preferences"
+                        label="&preferencesCmdUnix.label;"
+                        oncommand="openPreferences();"/>
+                <menuseparator/>
                 <menu id="fxmenu_webDeveloper" label="&appMenuWebDeveloper.label;">
 <!--                    <menupopup id="fxmenu_webDeveloper_popup">-->
 <!--                        <menuitem id="fxmenu_devToolbar"-->
@@ -295,8 +298,6 @@
                         command="View:PageSource"/>
 <!--                        key="key_viewSource"-->
                 <menuseparator/>
-                
-                
                 <menu id="fxmenu_help" label="&helpMenu.label;">
                     <menupopup id="fxmenu_helpMenupopup">
                         <menuitem id="fxmenu_openHelp"
@@ -326,10 +327,9 @@
                     </menupopup>
                 </menu>
                 <menuseparator/>
-                <menuitem id="fxmenu_preferences"
-                        label="&preferencesCmdUnix.label;"
-                        oncommand="openPreferences();"/>
-                <menuseparator/>
+<!--                <menuitem id="menu_closeWindow"-->
+<!--                          label="&closeWindow.label;"-->
+<!--                          command="cmd_closeWindow"/>-->
                 <menuitem id="fxmenu-quit"
                         class="menuitem-iconic"
                         label="&quitApplicationCmd.label;"
