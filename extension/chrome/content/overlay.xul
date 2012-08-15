@@ -21,10 +21,11 @@
 
     <script type="application/x-javascript" src="chrome://fxbutton/content/FxButton.js"/>
 
-    <toolbarpalette id="BrowserToolbarPalette">
+    <toolbar id="nav-bar">
         <toolbarbutton id="fx-button"
                 class="toolbarbutton-1 chromeclass-toolbar-additional"
                 type="menu"
+                removable="true"
                 label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
                 style="list-style-image: url(chrome://branding/content/icon16.png)"
                 onclick="FxButton.onClick(event);">
@@ -337,7 +338,7 @@
 <!--                        key="key_quitApplication"-->
             </menupopup>
         </toolbarbutton>
-    </toolbarpalette>
+    </toolbar>
 
 </overlay>
 
