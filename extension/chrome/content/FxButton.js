@@ -42,7 +42,7 @@ var FxButton = {
         FxButton.fxmenu_webdev.appendChild(newMenu);
         
         items = FxButton.fxmenu_webdev.getElementsByTagName('*');
-        for (var i=0; i<items.length; i++) {
+        for (var i = 0; i < items.length; i++) {
             items[i].id = "fxmenu" + items[i].id.replace(/^appmenu/, "");
         }
     },
