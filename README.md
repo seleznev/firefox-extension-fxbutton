@@ -1,14 +1,13 @@
 # FxButton
 
-Add button with appmenu (like GNOME Web) and hide the default "Firefox" button.
+Add button with appmenu (like GNOME Web / Google Chrome) and hide the default "Firefox" button.
 
 Use left click to open appmenu and middle click to open new tab.
 
-**It's experimental extension!** All versions is unstable. You can find a latest version on [downloads page](https://github.com/seleznev/firefox-extension-fxbutton/downloads).
+--
 
-It is part of my [GNOME 3 integration collection](https://addons.mozilla.org/firefox/collections/seleznev/gnome3/): [AdwaitaNS](https://github.com/seleznev/firefox-theme-adwaitans) + [HTitle](https://github.com/seleznev/firefox-extension-htitle) + **FxButton**. You can also look at [Adwaita](https://github.com/adwaita-firefox-team/adwaita-firefox) theme and [Hide Caption Titlebar Plus](https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/) extension.
+Please visit extension's page on [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/fxbutton/) for install latest stable version. Also, it is good place for you positive reviews. For post bug reports and feature requests please use [issues page](https://github.com/seleznev/firefox-extension-fxbutton/issues). I read it more often. Code of unstable version is contained in [next branch](https://github.com/seleznev/firefox-extension-fxbutton/tree/next). Use it for testing only.
 
 ## Screenshot
 
 ![Screenshot](firefox-extension-fxbutton/raw/master/screenshots/screenshot-active.png)
-
