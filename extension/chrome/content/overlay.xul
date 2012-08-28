@@ -127,8 +127,7 @@
         </menu>
         <menu id="fxmenu_history"
             iconic="true"
-            label="&historyMenu.label;"
-            command="Browser:ShowAllHistory">
+            label="&historyMenu.label;">
           <menupopup id="fxmenu_historyMenupopup"
               placespopup="true"
               oncommand="this.parentNode._placesView._onCommand(event);"
