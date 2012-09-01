@@ -21,7 +21,7 @@
   
   <script type="application/x-javascript" src="chrome://fxbutton/content/FxButton.js"/>
   
-  <toolbar id="nav-bar">
+  <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton id="fxbutton"
         class="toolbarbutton-1 chromeclass-toolbar-additional"
         type="menu"
@@ -158,7 +158,6 @@
         <menuseparator/>
         <menu id="fxbutton_webDeveloper" label="&appMenuWebDeveloper.label;">
         </menu>
-        
         <menuitem id="fxbutton_pageSource"
             label="&pageSourceCmd.label;"
             command="View:PageSource"/>
@@ -198,6 +197,6 @@
             command="cmd_quitApplication"/>
       </menupopup>
     </toolbarbutton>
-  </toolbar>
+  </toolbarpalette>
   
 </overlay>
