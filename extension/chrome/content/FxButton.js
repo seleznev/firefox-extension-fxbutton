@@ -8,14 +8,11 @@ var FxButton = {
     firstStart: true,
     
     init: function() {
-    },
-    
-    init: function() {
         let firstRunPref = "extensions.fxbutton.firstRunDone";
-
+        
         if (!Application.prefs.getValue(firstRunPref)) {
             Application.prefs.setValue(firstRunPref, true);
-            FxButton.installButton("nav-bar", "fx-button");
+            FxButton.installButton("nav-bar", "fxbutton");
         }
     },
     
@@ -40,7 +37,7 @@ var FxButton = {
     onClick: function(e) {
         var e = e || window.event;
         if ('object' === typeof e) {
-            if (e.button == 1 && e.target.id == "fx-button") {
+            if (e.button == 1 && e.target.id == "fxbutton") {
                 document.getElementById("cmd_newNavigatorTab").doCommand("cmd_newNavigatorTab");
             }
         }
@@ -49,7 +46,7 @@ var FxButton = {
     onPopupShowing: function() {
         // FIXME: This implementation is not good.
         // https://developer.mozilla.org/en-US/docs/Supporting_private_browsing_mode
-        var fxmenu_pb = document.getElementById("fxmenu_privateBrowsing");
+        var fxmenu_pb = document.getElementById("fxbutton_privateBrowsing");
         if (document.documentElement.hasAttribute("privatebrowsingmode"))
             fxmenu_pb.label = fxmenu_pb.getAttribute("stoplabel");
         else
@@ -63,14 +60,14 @@ var FxButton = {
     
     updateWebDeveloper: function() {
         FxButton.appmenu_webdev = document.getElementById("appmenu_webDeveloper_popup");
-        FxButton.fxmenu_webdev  = document.getElementById("fxmenu_webDeveloper");
+        FxButton.fxmenu_webdev  = document.getElementById("fxbutton_webDeveloper");
         
         var newMenu = FxButton.appmenu_webdev.cloneNode(true);
         FxButton.fxmenu_webdev.appendChild(newMenu);
         
         items = FxButton.fxmenu_webdev.getElementsByTagName('*');
         for (var i = 0; i < items.length; i++) {
-            items[i].id = "fxmenu" + items[i].id.replace(/^appmenu/, "");
+            items[i].id = "fxbutton" + items[i].id.replace(/^appmenu/, "");
         }
     },
 }

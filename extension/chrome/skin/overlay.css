@@ -5,7 +5,7 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* Toolbar Button */
-#fx-button > .toolbarbutton-menu-dropmarker {
+#fxbutton > .toolbarbutton-menu-dropmarker {
   display: none;
 }
 
@@ -15,6 +15,6 @@
 }
 
 /* FxMenu */
-#fxmenu_offlineModeRecovery:not([checked="true"]) {
+#fxbutton_offlineModeRecovery:not([checked="true"]) {
   display: none;
 }

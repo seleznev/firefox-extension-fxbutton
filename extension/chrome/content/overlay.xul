@@ -22,73 +22,73 @@
   <script type="application/x-javascript" src="chrome://fxbutton/content/FxButton.js"/>
   
   <toolbar id="nav-bar">
-    <toolbarbutton id="fx-button"
+    <toolbarbutton id="fxbutton"
         class="toolbarbutton-1 chromeclass-toolbar-additional"
         type="menu"
         removable="true"
         label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
         style="list-style-image: url(chrome://branding/content/icon16.png)"
         onclick="FxButton.onClick(event);">
-      <menupopup id="fxmenu-popup" onpopupshowing="FxButton.onPopupShowing();" context="">
-        <menuitem id="fxmenu-newTab-popup"
+      <menupopup id="fxbutton-popup" onpopupshowing="FxButton.onPopupShowing();" context="">
+        <menuitem id="fxbutton-newTab-popup"
             label="&tabCmd.label;"
             command="cmd_newNavigatorTab"/>
-        <menuitem id="fxmenu_privateBrowsing"
+        <menuitem id="fxbutton_privateBrowsing"
             class="menuitem-iconic menuitem-iconic-tooltip"
             label="&privateBrowsingCmd.start.label;"
             startlabel="&privateBrowsingCmd.start.label;"
             stoplabel="&privateBrowsingCmd.stop.label;"
             command="Tools:PrivateBrowsing"/>
-        <menuitem id="fxmenu_offlineModeRecovery"
+        <menuitem id="fxbutton_offlineModeRecovery"
             label="&goOfflineCmd.label;"
             type="checkbox"
             observes="workOfflineMenuitemState"
             oncommand="BrowserOffline.toggleOfflineStatus();"/>
         <menuseparator/>
-        <menuitem id="fxmenu-savePage"
+        <menuitem id="fxbutton-savePage"
           class="menuitem-tooltip"
           label="&savePageCmd.label;"
           command="Browser:SavePage"/>
         <menuseparator/>
-        <menuitem id="fxmenu-edit-cut"
+        <menuitem id="fxbutton-edit-cut"
           class="menuitem-iconic"
           label="&cutCmd.label;"
           command="cmd_cut"/>
-        <menuitem id="fxmenu-edit-copy"
+        <menuitem id="fxbutton-edit-copy"
           class="menuitem-iconic"
           label="&copyCmd.label;"
           command="cmd_copy"/>
-        <menuitem id="fxmenu-edit-paste"
+        <menuitem id="fxbutton-edit-paste"
           class="menuitem-iconic"
           label="&pasteCmd.label;"
           command="cmd_paste"/>
         <menuseparator/>
-        <menu id="fxmenu_print"
+        <menu id="fxbutton_print"
               iconic="true"
               label="&printCmd.label;">
           <menupopup>
-            <menuitem id="fxmenu_print_popup"
+            <menuitem id="fxbutton_print_popup"
               class="menuitem-iconic"
               label="&printCmd.label;"
               command="cmd_print"/>
-            <menuitem id="fxmenu_printPreview"
+            <menuitem id="fxbutton_printPreview"
               label="&printPreviewCmd.label;"
               command="cmd_printPreview"/>
-            <menuitem id="fxmenu_printSetup"
+            <menuitem id="fxbutton_printSetup"
               label="&printSetupCmd.label;"
               command="cmd_pageSetup"/>
           </menupopup>
         </menu>
         <menuseparator/>
-        <menuitem id="fxmenu_find"
+        <menuitem id="fxbutton_find"
               label="&appMenuFind.label;"
               accesskey="&findOnCmd.accesskey;"
               command="cmd_find"/>
         <menuseparator/>
-        <menu id="fxmenu_bookmarks"
+        <menu id="fxbutton_bookmarks"
             iconic="true"
             label="&bookmarksMenu.label;">
-          <menupopup id="fxmenu_bookmarksPopup"
+          <menupopup id="fxbutton_bookmarksPopup"
                 placespopup="true"
                 context="placesContext"
                 openInTabs="children"
@@ -99,17 +99,17 @@
                   new PlacesMenu(event, 'place:folder=BOOKMARKS_MENU');"
                 tooltip="bhTooltip"
                 popupsinherittooltip="true">
-            <menuitem id="fxmenu_bookmarkThisPage"
+            <menuitem id="fxbutton_bookmarkThisPage"
                 class="menuitem-iconic"
                 label="&bookmarkThisPageCmd.label;"
                 command="Browser:AddBookmarkAs"/>
             <menuseparator/>
-            <menu id="fxmenu_bookmarksToolbar"
+            <menu id="fxbutton_bookmarksToolbar"
                 placesanonid="toolbar-autohide"
                 class="menu-iconic bookmark-item"
                 label="&personalbarCmd.label;"
                 container="true">
-              <menupopup id="fxmenu_bookmarksToolbarPopup"
+              <menupopup id="fxbutton_bookmarksToolbarPopup"
                 placespopup="true"
                 context="placesContext"
                 onpopupshowing="if (!this.parentNode._placesView)
@@ -119,16 +119,16 @@
             <!-- Bookmarks menu items -->
             <menuseparator builder="end"
                 class="hide-if-empty-places-result"/>
-            <menuitem id="fxmenu_showAllBookmarks"
+            <menuitem id="fxbutton_showAllBookmarks"
                 label="&showAllBookmarks2.label;"
                 command="Browser:ShowAllBookmarks"
                 context=""/>
           </menupopup>
         </menu>
-        <menu id="fxmenu_history"
+        <menu id="fxbutton_history"
             iconic="true"
             label="&historyMenu.label;">
-          <menupopup id="fxmenu_historyMenupopup"
+          <menupopup id="fxbutton_historyMenupopup"
               placespopup="true"
               oncommand="this.parentNode._placesView._onCommand(event);"
               onclick="checkForMiddleClick(this, event);"
@@ -136,63 +136,63 @@
                        new HistoryMenu(event);"
               tooltip="bhTooltip"
               popupsinherittooltip="true">
-            <menuitem id="fxmenu_showAllHistory"
+            <menuitem id="fxbutton_showAllHistory"
                 label="&showAllHistoryCmd2.label;"
                 command="Browser:ShowAllHistory"/>
             <menuseparator/>
           </menupopup>
         </menu>
-        <menuitem id="fxmenu_downloads"
+        <menuitem id="fxbutton_downloads"
             class="menuitem-tooltip"
             label="&downloads.label;"
             command="Tools:Downloads"/>
         <menuseparator/>
-        <menuitem id="fxmenu_addons"
+        <menuitem id="fxbutton_addons"
             class="menuitem-iconic menuitem-iconic-tooltip"
             label="&addons.label;"
             command="Tools:Addons"/>
         <menuseparator/>
-        <menuitem id="fxmenu_preferences"
+        <menuitem id="fxbutton_preferences"
             label="&preferencesCmdUnix.label;"
             oncommand="openPreferences();"/>
         <menuseparator/>
-        <menu id="fxmenu_webDeveloper" label="&appMenuWebDeveloper.label;">
+        <menu id="fxbutton_webDeveloper" label="&appMenuWebDeveloper.label;">
         </menu>
         
-        <menuitem id="fxmenu_pageSource"
+        <menuitem id="fxbutton_pageSource"
             label="&pageSourceCmd.label;"
             command="View:PageSource"/>
         <menuseparator/>
-        <menu id="fxmenu_help" label="&helpMenu.label;">
-          <menupopup id="fxmenu_helpMenupopup">
-            <menuitem id="fxmenu_openHelp"
+        <menu id="fxbutton_help" label="&helpMenu.label;">
+          <menupopup id="fxbutton_helpMenupopup">
+            <menuitem id="fxbutton_openHelp"
                 label="&helpMenu.label;"
                 oncommand="openHelpLink('firefox-help')"
                 onclick="checkForMiddleClick(this, event);"/>
-            <menuitem id="fxmenu_gettingStarted"
+            <menuitem id="fxbutton_gettingStarted"
                 label="&appMenuGettingStarted.label;"
                 oncommand="gBrowser.loadOneTab('http://www.mozilla.com/firefox/central/', {inBackground: false});"
                 onclick="checkForMiddleClick(this, event);"/>
-            <menuitem id="fxmenu_troubleshootingInfo"
+            <menuitem id="fxbutton_troubleshootingInfo"
                 label="&helpTroubleshootingInfo.label;"
                 oncommand="openTroubleshootingPage()"
                 onclick="checkForMiddleClick(this,event);"/>
-            <menuitem id="fxmenu_feedbackPage"
+            <menuitem id="fxbutton_feedbackPage"
                 label="&helpFeedbackPage.label;"
                 oncommand="openFeedbackPage()"
                 onclick="checkForMiddleClick(this, event);"/>
             <menuseparator/>
-            <menuitem id="fxmenu_safeMode"
+            <menuitem id="fxbutton_safeMode"
                 label="&appMenuSafeMode.label;"
                 oncommand="safeModeRestart();"/>
             <menuseparator/>
-            <menuitem id="fxmenu_about"
+            <menuitem id="fxbutton_about"
                 label="&aboutProduct.label;"
                 oncommand="openAboutDialog();"/>
           </menupopup>
         </menu>
         <menuseparator/>
-        <menuitem id="fxmenu-quit"
+        <menuitem id="fxbutton-quit"
             class="menuitem-iconic"
             label="&quitApplicationCmd.label;"
             command="cmd_quitApplication"/>
