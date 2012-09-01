@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+"use strict";
+
 var FxButton = {
     DEBUG: false,
     
@@ -32,7 +34,7 @@ var FxButton = {
             toolbar.setAttribute("currentset", toolbar.currentSet);
             document.persist(toolbar.id, "currentset");
         }
-    }
+    },
     
     onClick: function(e) {
         var e = e || window.event;
@@ -65,7 +67,7 @@ var FxButton = {
         var newMenu = FxButton.appmenu_webdev.cloneNode(true);
         FxButton.fxmenu_webdev.appendChild(newMenu);
         
-        items = FxButton.fxmenu_webdev.getElementsByTagName('*');
+        var items = FxButton.fxmenu_webdev.getElementsByTagName('*');
         for (var i = 0; i < items.length; i++) {
             items[i].id = "fxbutton" + items[i].id.replace(/^appmenu/, "");
         }
