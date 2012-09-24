@@ -7,7 +7,7 @@
     <em:id>{3fbf8d1c-d9b5-4726-a12b-a6bb38f8a451}</em:id>
     <em:type>2</em:type>
     <em:name>FxButton</em:name>
-    <em:version>1.1</em:version>
+    <em:version>1.2</em:version>
     <em:description>Add button with appmenu (like GNOME Web / Google Chrome) and hide the default "Firefox" button.</em:description>
     <em:homepageURL>https://github.com/seleznev/firefox-extension-fxbutton</em:homepageURL>
     <em:creator>Alexander Seleznev</em:creator>
