@@ -69,7 +69,7 @@ var FxButton = {
         
         var items = FxButton.fxmenu_webdev.getElementsByTagName('*');
         for (var i = 0; i < items.length; i++) {
-            items[i].id = "fxbutton" + items[i].id.replace(/^appmenu/, "");
+            items[i].id = items[i].id.replace(/^appmenu/, "fxbutton");
         }
     },
 }
