@@ -139,7 +139,7 @@
             <menuitem id="fxbutton_showAllHistory"
                 label="&showAllHistoryCmd2.label;"
                 command="Browser:ShowAllHistory"/>
-            <menuseparator/>
+            <menuseparator class="hide-if-empty-places-result"/>
           </menupopup>
         </menu>
         <menuitem id="fxbutton_downloads"
