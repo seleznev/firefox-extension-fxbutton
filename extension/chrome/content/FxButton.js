@@ -11,6 +11,16 @@ var FxButton = {
         var appmenu = document.getElementById("appmenu-toolbar-button");
         appmenu.setAttribute("removable", true);
         appmenu.classList.add("fxbutton");
+        appmenu.addEventListener("click", FxButton.onClick);
+    },
+    
+    onClick: function(e) {
+        var e = e || window.event;
+        if ('object' === typeof e) {
+            if (e.button == 1 && e.target.id == "appmenu-toolbar-button") {
+                document.getElementById("cmd_newNavigatorTab").doCommand("cmd_newNavigatorTab");
+            }
+        }
     },
 }
 
