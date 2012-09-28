@@ -5,16 +5,23 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* Toolbar button */
-#fxbutton > .toolbarbutton-menu-dropmarker {
+
+#TabsToolbar #appmenu-toolbar-button:not(:first-child) > .toolbarbutton-icon,
+toolbar:not(#TabsToolbar) #appmenu-toolbar-button > .toolbarbutton-icon {
+  list-style-image: url(chrome://branding/content/icon16.png);
+  display: block;
+  -moz-margin-end: 0;
+}
+
+#TabsToolbar #appmenu-toolbar-button:not(:first-child) > .toolbarbutton-text,
+toolbar:not(#TabsToolbar) #appmenu-toolbar-button > .toolbarbutton-text,
+#TabsToolbar #appmenu-toolbar-button:not(:first-child) > .toolbarbutton-menu-dropmarker,
+toolbar:not(#TabsToolbar) #appmenu-toolbar-button > .toolbarbutton-menu-dropmarker {
   display: none;
 }
 
-/* Default appmenu button */
-#appmenu-toolbar-button {
-  display: none;
-}
-
-/* FxButton menu */
-#fxbutton_offlineModeRecovery:not([checked="true"]) {
-  display: none;
+/* */
+#wrapper-appmenu-toolbar-button,
+.appmenu-edit-button[disabled="true"] {
+  opacity: 1 !important;
 }

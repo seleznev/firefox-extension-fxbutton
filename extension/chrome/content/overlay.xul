@@ -1,202 +1,121 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE overlay [
-<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
-%brandDTD;
 <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
 %browserDTD;
-<!ENTITY % baseMenuOverlayDTD SYSTEM "chrome://browser/locale/baseMenuOverlay.dtd">
-%baseMenuOverlayDTD;
-<!ENTITY % aboutPrivateBrowsingDTD SYSTEM "chrome://browser/locale/aboutPrivateBrowsing.dtd">
-%aboutPrivateBrowsingDTD;
-<!ENTITY % debuggerDTD SYSTEM "chrome://browser/locale/devtools/debugger.dtd">
-%debuggerDTD;
 ]>
 
 <?xml-stylesheet href="chrome://fxbutton/skin/overlay.css" type="text/css"?>
 
-<overlay id="fxbutton" 
+<overlay id="fxbutton"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml">
   
   <script type="application/x-javascript" src="chrome://fxbutton/content/FxButton.js"/>
   
-  <toolbarpalette id="BrowserToolbarPalette">
-    <toolbarbutton id="fxbutton"
-        class="toolbarbutton-1 chromeclass-toolbar-additional"
-        type="menu"
-        removable="true"
-        label="&brandShortName;" tooltiptext="&appMenuButton.tooltip;"
-        style="list-style-image: url(chrome://branding/content/icon16.png)"
-        onclick="FxButton.onClick(event);">
-      <menupopup id="fxbutton-popup" onpopupshowing="FxButton.onPopupShowing();" context="">
-        <menuitem id="fxbutton-newTab-popup"
+  <splitmenu id="appmenu_newTab" removeelement="true"/>
+  <splitmenu id="appmenu_print" removeelement="true"/>
+  <menu id="appmenu-editmenu" removeelement="true"/>
+  <menuitem id="appmenu_preferences" removeelement="true"/>
+  <vbox id="appmenuSecondaryPane" removeelement="true"/>
+  
+  <vbox id="appmenuPrimaryPane">
+    <menuitem id="appmenu_newTab"
             label="&tabCmd.label;"
-            command="cmd_newNavigatorTab"/>
-        <menuitem id="fxbutton_privateBrowsing"
-            class="menuitem-iconic menuitem-iconic-tooltip"
-            label="&privateBrowsingCmd.start.label;"
-            startlabel="&privateBrowsingCmd.start.label;"
-            stoplabel="&privateBrowsingCmd.stop.label;"
-            command="Tools:PrivateBrowsing"/>
-        <menuitem id="fxbutton_offlineModeRecovery"
-            label="&goOfflineCmd.label;"
-            type="checkbox"
-            observes="workOfflineMenuitemState"
-            oncommand="BrowserOffline.toggleOfflineStatus();"/>
-        <menuseparator/>
-        <menuitem id="fxbutton-savePage"
-          class="menuitem-tooltip"
-          label="&savePageCmd.label;"
-          command="Browser:SavePage"/>
-        <menuseparator/>
-        <menuitem id="fxbutton-edit-cut"
-          class="menuitem-iconic"
-          label="&cutCmd.label;"
-          command="cmd_cut"/>
-        <menuitem id="fxbutton-edit-copy"
-          class="menuitem-iconic"
-          label="&copyCmd.label;"
-          command="cmd_copy"/>
-        <menuitem id="fxbutton-edit-paste"
-          class="menuitem-iconic"
-          label="&pasteCmd.label;"
-          command="cmd_paste"/>
-        <menuseparator/>
-        <menu id="fxbutton_print"
+            command="cmd_newNavigatorTab"
+            insertbefore="appmenu_privateBrowsing"/>
+    <menu id="appmenu_print"
               iconic="true"
-              label="&printCmd.label;">
+              label="&printCmd.label;"
+              insertafter="appmenu_find">
           <menupopup>
-            <menuitem id="fxbutton_print_popup"
+            <menuitem id="appmenu_print_popup"
               class="menuitem-iconic"
               label="&printCmd.label;"
               command="cmd_print"/>
-            <menuitem id="fxbutton_printPreview"
+            <menuitem id="appmenu_printPreview"
               label="&printPreviewCmd.label;"
               command="cmd_printPreview"/>
-            <menuitem id="fxbutton_printSetup"
+            <menuitem id="appmenu_printSetup"
               label="&printSetupCmd.label;"
               command="cmd_pageSetup"/>
           </menupopup>
-        </menu>
-        <menuseparator/>
-        <menuitem id="fxbutton_find"
-              label="&appMenuFind.label;"
-              accesskey="&findOnCmd.accesskey;"
-              command="cmd_find"/>
-        <menuseparator/>
-        <menu id="fxbutton_bookmarks"
-            iconic="true"
-            label="&bookmarksMenu.label;">
-          <menupopup id="fxbutton_bookmarksPopup"
-                placespopup="true"
-                context="placesContext"
-                openInTabs="children"
-                oncommand="BookmarksEventHandler.onCommand(event, this.parentNode._placesView);"
-                onclick="BookmarksEventHandler.onClick(event, this.parentNode._placesView);"
-                onpopupshowing="BookmarksMenuButton.onPopupShowing(event);
-                  if (!this.parentNode._placesView)
-                  new PlacesMenu(event, 'place:folder=BOOKMARKS_MENU');"
-                tooltip="bhTooltip"
-                popupsinherittooltip="true">
-            <menuitem id="fxbutton_bookmarkThisPage"
-                class="menuitem-iconic"
-                label="&bookmarkThisPageCmd.label;"
-                command="Browser:AddBookmarkAs"/>
-            <menuseparator/>
-            <menu id="fxbutton_bookmarksToolbar"
-                placesanonid="toolbar-autohide"
-                class="menu-iconic bookmark-item"
-                label="&personalbarCmd.label;"
-                container="true">
-              <menupopup id="fxbutton_bookmarksToolbarPopup"
-                placespopup="true"
-                context="placesContext"
-                onpopupshowing="if (!this.parentNode._placesView)
-                        new PlacesMenu(event, 'place:folder=TOOLBAR');"/>
-            </menu>
-            <menuseparator/>
-            <!-- Bookmarks menu items -->
-            <menuseparator builder="end"
-                class="hide-if-empty-places-result"/>
-            <menuitem id="fxbutton_showAllBookmarks"
-                label="&showAllBookmarks2.label;"
-                command="Browser:ShowAllBookmarks"
-                context=""/>
-          </menupopup>
-        </menu>
-        <menu id="fxbutton_history"
-            iconic="true"
-            label="&historyMenu.label;">
-          <menupopup id="fxbutton_historyMenupopup"
-              placespopup="true"
-              oncommand="this.parentNode._placesView._onCommand(event);"
-              onclick="checkForMiddleClick(this, event);"
-              onpopupshowing="if (!this.parentNode._placesView)
-                       new HistoryMenu(event);"
-              tooltip="bhTooltip"
-              popupsinherittooltip="true">
-            <menuitem id="fxbutton_showAllHistory"
-                label="&showAllHistoryCmd2.label;"
-                command="Browser:ShowAllHistory"/>
-            <menuseparator class="hide-if-empty-places-result"/>
-          </menupopup>
-        </menu>
-        <menuitem id="fxbutton_downloads"
-            class="menuitem-tooltip"
-            label="&downloads.label;"
-            command="Tools:Downloads"/>
-        <menuseparator/>
-        <menuitem id="fxbutton_addons"
-            class="menuitem-iconic menuitem-iconic-tooltip"
-            label="&addons.label;"
-            command="Tools:Addons"/>
-        <menuseparator/>
-        <menuitem id="fxbutton_preferences"
-            label="&preferencesCmdUnix.label;"
-            oncommand="openPreferences();"/>
-        <menuseparator/>
-        <menu id="fxbutton_webDeveloper" label="&appMenuWebDeveloper.label;">
-        </menu>
-        <menuitem id="fxbutton_pageSource"
-            label="&pageSourceCmd.label;"
-            command="View:PageSource"/>
-        <menuseparator/>
-        <menu id="fxbutton_help" label="&helpMenu.label;">
-          <menupopup id="fxbutton_helpMenupopup">
-            <menuitem id="fxbutton_openHelp"
-                label="&helpMenu.label;"
-                oncommand="openHelpLink('firefox-help')"
-                onclick="checkForMiddleClick(this, event);"/>
-            <menuitem id="fxbutton_gettingStarted"
-                label="&appMenuGettingStarted.label;"
-                oncommand="gBrowser.loadOneTab('http://www.mozilla.com/firefox/central/', {inBackground: false});"
-                onclick="checkForMiddleClick(this, event);"/>
-            <menuitem id="fxbutton_troubleshootingInfo"
-                label="&helpTroubleshootingInfo.label;"
-                oncommand="openTroubleshootingPage()"
-                onclick="checkForMiddleClick(this,event);"/>
-            <menuitem id="fxbutton_feedbackPage"
-                label="&helpFeedbackPage.label;"
-                oncommand="openFeedbackPage()"
-                onclick="checkForMiddleClick(this, event);"/>
-            <menuseparator/>
-            <menuitem id="fxbutton_safeMode"
-                label="&appMenuSafeMode.label;"
-                oncommand="safeModeRestart();"/>
-            <menuseparator/>
-            <menuitem id="fxbutton_about"
-                label="&aboutProduct.label;"
-                oncommand="openAboutDialog();"/>
-          </menupopup>
-        </menu>
-        <menuseparator/>
-        <menuitem id="fxbutton-quit"
+    </menu>
+    <menu id="appmenu_bookmarks"
+        iconic="true"
+        label="&bookmarksMenu.label;"
+        insertafter="appmenu_sendLink">
+      <menupopup id="appmenu_bookmarksPopup"
+            placespopup="true"
+            context="placesContext"
+            openInTabs="children"
+            oncommand="BookmarksEventHandler.onCommand(event, this.parentNode._placesView);"
+            onclick="BookmarksEventHandler.onClick(event, this.parentNode._placesView);"
+            onpopupshowing="BookmarksMenuButton.onPopupShowing(event);
+              if (!this.parentNode._placesView)
+              new PlacesMenu(event, 'place:folder=BOOKMARKS_MENU');"
+            tooltip="bhTooltip"
+            popupsinherittooltip="true">
+        <menuitem id="appmenu_bookmarkThisPage"
             class="menuitem-iconic"
-            label="&quitApplicationCmd.label;"
-            command="cmd_quitApplication"/>
+            label="&bookmarkThisPageCmd.label;"
+            command="Browser:AddBookmarkAs"/>
+        <menuseparator/>
+        <menu id="appmenu_bookmarksToolbar"
+            placesanonid="toolbar-autohide"
+            class="menu-iconic bookmark-item"
+            label="&personalbarCmd.label;"
+            container="true">
+          <menupopup id="appmenu_bookmarksToolbarPopup"
+            placespopup="true"
+            context="placesContext"
+            onpopupshowing="if (!this.parentNode._placesView) new PlacesMenu(event, 'place:folder=TOOLBAR');"/>
+        </menu>
+        <menuseparator/>
+        <!-- Bookmarks menu items -->
+        <menuseparator builder="end" class="hide-if-empty-places-result"/>
+        <menuitem id="appmenu_showAllBookmarks"
+            label="&showAllBookmarks2.label;"
+            command="Browser:ShowAllBookmarks"
+            context=""/>
       </menupopup>
-    </toolbarbutton>
-  </toolbarpalette>
-  
+    </menu>
+    <menu id="appmenu_history"
+        iconic="true"
+        label="&historyMenu.label;"
+        insertafter="appmenu_bookmarks">
+      <menupopup id="appmenu_historyMenupopup"
+          placespopup="true"
+          oncommand="this.parentNode._placesView._onCommand(event);"
+          onclick="checkForMiddleClick(this, event);"
+          onpopupshowing="if (!this.parentNode._placesView) new HistoryMenu(event);"
+          tooltip="bhTooltip"
+          popupsinherittooltip="true">
+        <menuitem id="appmenu_showAllHistory"
+            label="&showAllHistoryCmd2.label;"
+            command="Browser:ShowAllHistory"/>
+        <menuseparator class="hide-if-empty-places-result"/>
+      </menupopup>
+    </menu>
+    <menuitem id="appmenu_downloads"
+        class="menuitem-tooltip"
+        label="&downloads.label;"
+        command="Tools:Downloads"
+        insertafter="appmenu_history"/>
+    <menuitem id="appmenu_addons"
+        class="menuitem-iconic menuitem-iconic-tooltip"
+        label="&addons.label;"
+        command="Tools:Addons"
+        insertafter="appmenu_downloads"/>
+    <menuitem id="appmenu_preferences"
+            label="&preferencesCmdUnix.label;"
+            oncommand="openPreferences();"
+            insertafter="appmenu_addons"/>
+
+    <!-- Separators -->
+    <menuseparator class="appmenu-menuseparator" insertafter="appmenu_downloads"/>
+    <menuseparator class="appmenu-menuseparator" insertafter="appmenu_sendLink"/>
+    <menuseparator class="appmenu-menuseparator" insertafter="appmenu_addons"/>
+  </vbox>
+
 </overlay>

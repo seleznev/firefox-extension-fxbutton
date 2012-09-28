@@ -7,15 +7,15 @@
     <em:id>{3fbf8d1c-d9b5-4726-a12b-a6bb38f8a451}</em:id>
     <em:type>2</em:type>
     <em:name>FxButton</em:name>
-    <em:version>1.2</em:version>
-    <em:description>Add button with appmenu (like GNOME Web / Google Chrome) and hide the default "Firefox" button.</em:description>
+    <em:version>2.0a1</em:version>
+    <em:description>Change menu of "Firefox" button.</em:description>
     <em:homepageURL>https://github.com/seleznev/firefox-extension-fxbutton</em:homepageURL>
     <em:creator>Alexander Seleznev</em:creator>
     
     <em:localized>
       <Description em:locale="ru-RU">
         <em:name>FxButton</em:name>
-        <em:description>Добавляет кнопку с меню приложения (в стиле GNOME Web / Google Chrome) и скрывает кнопку "Firefox".</em:description>
+        <em:description>Заменяет меню у кнопки "Firefox" и дает возможность её перемещать.</em:description>
       </Description>
     </em:localized>
     
@@ -24,7 +24,7 @@
     <em:targetApplication>
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-        <em:minVersion>10.0</em:minVersion>
+        <em:minVersion>15.0</em:minVersion>
         <em:maxVersion>18.0a1</em:maxVersion>
       </Description>
     </em:targetApplication>
