@@ -17,6 +17,7 @@
   <splitmenu id="appmenu_print" removeelement="true"/>
   <menu id="appmenu-editmenu" removeelement="true"/>
   <menuitem id="appmenu_preferences" removeelement="true"/>
+  <menuitem id="appmenu-quit" removeelement="true"/>
   <vbox id="appmenuSecondaryPane" removeelement="true"/>
   
   <vbox id="appmenuPrimaryPane">
@@ -111,11 +112,18 @@
             label="&preferencesCmdUnix.label;"
             oncommand="openPreferences();"
             insertafter="appmenu_addons"/>
-
+    <menuseparator class="appmenu-menuseparator"/>
+    <menuitem id="appmenu_closeWindow"
+            class="menuitem-iconic-tooltip"
+            command="cmd_closeWindow"
+            key="key_closeWindow"
+            label="&closeWindow.label;"
+            accesskey="&closeWindow.accesskey;"/>
+    
     <!-- Separators -->
     <menuseparator class="appmenu-menuseparator" insertafter="appmenu_downloads"/>
     <menuseparator class="appmenu-menuseparator" insertafter="appmenu_sendLink"/>
     <menuseparator class="appmenu-menuseparator" insertafter="appmenu_addons"/>
   </vbox>
-
+  
 </overlay>
