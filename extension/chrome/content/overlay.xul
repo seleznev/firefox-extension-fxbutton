@@ -113,12 +113,12 @@
             oncommand="openPreferences();"
             insertafter="appmenu_addons"/>
     <menuseparator class="appmenu-menuseparator"/>
-    <menuitem id="appmenu_closeWindow"
+    <menuitem id="appmenu_close"
             class="menuitem-iconic-tooltip"
-            command="cmd_closeWindow"
-            key="key_closeWindow"
-            label="&closeWindow.label;"
-            accesskey="&closeWindow.accesskey;"/>
+            command="cmd_close"
+            key="key_close"
+            label="&closeCmd.label;"
+            accesskey="&closeCmd.accesskey;"/>
     
     <!-- Separators -->
     <menuseparator class="appmenu-menuseparator" insertafter="appmenu_downloads"/>
