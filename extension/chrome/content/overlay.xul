@@ -3,6 +3,10 @@
 <!DOCTYPE overlay [
 <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
 %browserDTD;
+<!ENTITY % baseMenuDTD SYSTEM "chrome://browser/locale/baseMenuOverlay.dtd">
+%baseMenuDTD;
+<!ENTITY % aboutHomeDTD SYSTEM "chrome://browser/locale/aboutHome.dtd">
+%aboutHomeDTD;
 ]>
 
 <?xml-stylesheet href="chrome://fxbutton/skin/overlay.css" type="text/css"?>
@@ -112,6 +116,36 @@
             label="&preferencesCmdUnix.label;"
             oncommand="openPreferences();"
             insertafter="appmenu_addons"/>
+    <menuseparator class="appmenu-menuseparator"/>
+    <menu id="appmenu_help"
+        label="&helpMenu.label;">
+      <menupopup id="appmenu_helpMenupopup">
+        <menuitem id="appmenu_openHelp"
+            label="&helpMenu.label;"
+            oncommand="openHelpLink('firefox-help')"
+            onclick="checkForMiddleClick(this, event);"/>
+        <menuitem id="appmenu_gettingStarted"
+            label="&appMenuGettingStarted.label;"
+            oncommand="gBrowser.loadOneTab('http://www.mozilla.com/firefox/central/', {inBackground: false});"
+            onclick="checkForMiddleClick(this, event);"/>
+        <menuitem id="appmenu_troubleshootingInfo"
+            label="&helpTroubleshootingInfo.label;"
+            oncommand="openTroubleshootingPage()"
+            onclick="checkForMiddleClick(this,event);"/>
+        <menuitem id="appmenu_feedbackPage"
+        label="&helpFeedbackPage.label;"
+            oncommand="openFeedbackPage()"
+            onclick="checkForMiddleClick(this, event);"/>
+        <menuseparator/>
+        <menuitem id="appmenu_safeMode"
+            label="&appMenuSafeMode.label;"
+            oncommand="safeModeRestart();"/>
+        <menuseparator/>
+        <menuitem id="appmenu_about"
+            label="&aboutProduct.label;"
+            oncommand="openAboutDialog();"/>
+      </menupopup>
+    </menu>
     <menuseparator class="appmenu-menuseparator"/>
     <menuitem id="appmenu_close"
             class="menuitem-iconic-tooltip"
