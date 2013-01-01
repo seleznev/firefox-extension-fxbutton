@@ -99,7 +99,35 @@
         <menuitem id="appmenu_showAllHistory"
             label="&showAllHistoryCmd2.label;"
             command="Browser:ShowAllHistory"/>
+        <menuitem id="appmenu_sanitizeHistory"
+            label="&clearRecentHistory.label;"
+            key="key_sanitize"
+            command="Tools:Sanitize"/>
         <menuseparator class="hide-if-empty-places-result"/>
+        <menuitem id="appmenu_sync-tabs"
+            class="syncTabsMenuItem"
+            label="&syncTabsMenu.label;"
+            oncommand="BrowserOpenSyncTabs();"
+            disabled="true"/>
+        <menuitem id="appmenu_restoreLastSession"
+            class="restoreLastSession"
+            label="&historyRestoreLastSession.label;"
+            oncommand="restoreLastSession();"
+            disabled="true"/>
+        <menu id="appmenu_recentlyClosedTabsMenu"
+            class="recentlyClosedTabsMenu"
+            label="&historyUndoMenu.label;"
+            disabled="true">
+          <menupopup id="appmenu_recentlyClosedTabsMenupopup"
+              onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoSubmenu();"/>
+        </menu>
+        <menu id="appmenu_recentlyClosedWindowsMenu"
+            class="recentlyClosedWindowsMenu"
+            label="&historyUndoWindowMenu.label;"
+            disabled="true">
+          <menupopup id="appmenu_recentlyClosedWindowsMenupopup"
+              onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoWindowSubmenu();"/>
+        </menu>
       </menupopup>
     </menu>
     <menuitem id="appmenu_downloads"
