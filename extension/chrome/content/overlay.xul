@@ -12,8 +12,8 @@
 <?xml-stylesheet href="chrome://fxbutton/skin/overlay.css" type="text/css"?>
 
 <overlay id="fxbutton"
-    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-    xmlns:html="http://www.w3.org/1999/xhtml">
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         xmlns:html="http://www.w3.org/1999/xhtml">
   
   <script type="application/x-javascript" src="chrome://fxbutton/content/FxButton.js"/>
   
@@ -26,161 +26,161 @@
   
   <vbox id="appmenuPrimaryPane">
     <menuitem id="appmenu_newTab"
-            label="&tabCmd.label;"
-            command="cmd_newNavigatorTab"
-            insertbefore="appmenu_privateBrowsing"/>
+              label="&tabCmd.label;"
+              command="cmd_newNavigatorTab"
+              insertbefore="appmenu_privateBrowsing"/>
     <menu id="appmenu_print"
-              iconic="true"
-              label="&printCmd.label;"
-              insertafter="appmenu_find">
-          <menupopup>
-            <menuitem id="appmenu_print_popup"
-              class="menuitem-iconic"
-              label="&printCmd.label;"
-              command="cmd_print"/>
-            <menuitem id="appmenu_printPreview"
-              label="&printPreviewCmd.label;"
-              command="cmd_printPreview"/>
-            <menuitem id="appmenu_printSetup"
-              label="&printSetupCmd.label;"
-              command="cmd_pageSetup"/>
-          </menupopup>
+          iconic="true"
+          label="&printCmd.label;"
+          insertafter="appmenu_find">
+      <menupopup>
+        <menuitem id="appmenu_print_popup"
+                  class="menuitem-iconic"
+                  label="&printCmd.label;"
+                  command="cmd_print"/>
+        <menuitem id="appmenu_printPreview"
+                  label="&printPreviewCmd.label;"
+                  command="cmd_printPreview"/>
+        <menuitem id="appmenu_printSetup"
+                  label="&printSetupCmd.label;"
+                  command="cmd_pageSetup"/>
+      </menupopup>
     </menu>
     <menu id="appmenu_bookmarks"
-        iconic="true"
-        label="&bookmarksMenu.label;"
-        insertafter="appmenu_sendLink">
+          iconic="true"
+          label="&bookmarksMenu.label;"
+          insertafter="appmenu_sendLink">
       <menupopup id="appmenu_bookmarksPopup"
-            placespopup="true"
-            context="placesContext"
-            openInTabs="children"
-            oncommand="BookmarksEventHandler.onCommand(event, this.parentNode._placesView);"
-            onclick="BookmarksEventHandler.onClick(event, this.parentNode._placesView);"
-            onpopupshowing="BookmarksMenuButton.onPopupShowing(event);
-              if (!this.parentNode._placesView)
-              new PlacesMenu(event, 'place:folder=BOOKMARKS_MENU');"
-            tooltip="bhTooltip"
-            popupsinherittooltip="true">
+                 placespopup="true"
+                 context="placesContext"
+                 openInTabs="children"
+                 oncommand="BookmarksEventHandler.onCommand(event, this.parentNode._placesView);"
+                 onclick="BookmarksEventHandler.onClick(event, this.parentNode._placesView);"
+                 onpopupshowing="BookmarksMenuButton.onPopupShowing(event);
+                                  if (!this.parentNode._placesView)
+                                    new PlacesMenu(event, 'place:folder=BOOKMARKS_MENU');"
+                 tooltip="bhTooltip"
+                 popupsinherittooltip="true">
         <menuitem id="appmenu_bookmarkThisPage"
-            class="menuitem-iconic"
-            label="&bookmarkThisPageCmd.label;"
-            command="Browser:AddBookmarkAs"/>
+                  class="menuitem-iconic"
+                  label="&bookmarkThisPageCmd.label;"
+                  command="Browser:AddBookmarkAs"/>
         <menuseparator/>
         <menu id="appmenu_bookmarksToolbar"
-            placesanonid="toolbar-autohide"
-            class="menu-iconic bookmark-item"
-            label="&personalbarCmd.label;"
-            container="true">
+              placesanonid="toolbar-autohide"
+              class="menu-iconic bookmark-item"
+              label="&personalbarCmd.label;"
+              container="true">
           <menupopup id="appmenu_bookmarksToolbarPopup"
-            placespopup="true"
-            context="placesContext"
-            onpopupshowing="if (!this.parentNode._placesView) new PlacesMenu(event, 'place:folder=TOOLBAR');"/>
+                     placespopup="true"
+                     context="placesContext"
+                     onpopupshowing="if (!this.parentNode._placesView) new PlacesMenu(event, 'place:folder=TOOLBAR');"/>
         </menu>
         <menuseparator/>
         <!-- Bookmarks menu items -->
         <menuseparator builder="end" class="hide-if-empty-places-result"/>
         <menuitem id="appmenu_showAllBookmarks"
-            label="&showAllBookmarks2.label;"
-            command="Browser:ShowAllBookmarks"
-            context=""/>
+                  label="&showAllBookmarks2.label;"
+                  command="Browser:ShowAllBookmarks"
+                  context=""/>
       </menupopup>
     </menu>
     <menu id="appmenu_history"
-        iconic="true"
-        label="&historyMenu.label;"
-        insertafter="appmenu_bookmarks">
+          iconic="true"
+          label="&historyMenu.label;"
+          insertafter="appmenu_bookmarks">
       <menupopup id="appmenu_historyMenupopup"
-          placespopup="true"
-          oncommand="this.parentNode._placesView._onCommand(event);"
-          onclick="checkForMiddleClick(this, event);"
-          onpopupshowing="if (!this.parentNode._placesView) new HistoryMenu(event);"
-          tooltip="bhTooltip"
-          popupsinherittooltip="true">
+                 placespopup="true"
+                 oncommand="this.parentNode._placesView._onCommand(event);"
+                 onclick="checkForMiddleClick(this, event);"
+                 onpopupshowing="if (!this.parentNode._placesView) new HistoryMenu(event);"
+                 tooltip="bhTooltip"
+                 popupsinherittooltip="true">
         <menuitem id="appmenu_showAllHistory"
-            label="&showAllHistoryCmd2.label;"
-            command="Browser:ShowAllHistory"/>
+                  label="&showAllHistoryCmd2.label;"
+                  command="Browser:ShowAllHistory"/>
         <menuitem id="appmenu_sanitizeHistory"
-            label="&clearRecentHistory.label;"
-            key="key_sanitize"
-            command="Tools:Sanitize"/>
+                  label="&clearRecentHistory.label;"
+                  key="key_sanitize"
+                  command="Tools:Sanitize"/>
         <menuseparator class="hide-if-empty-places-result"/>
         <menuitem id="appmenu_sync-tabs"
-            class="syncTabsMenuItem"
-            label="&syncTabsMenu.label;"
-            oncommand="BrowserOpenSyncTabs();"
-            disabled="true"/>
+                  class="syncTabsMenuItem"
+                  label="&syncTabsMenu.label;"
+                  oncommand="BrowserOpenSyncTabs();"
+                  disabled="true"/>
         <menuitem id="appmenu_restoreLastSession"
-            class="restoreLastSession"
-            label="&historyRestoreLastSession.label;"
-            oncommand="restoreLastSession();"
-            disabled="true"/>
+                  class="restoreLastSession"
+                  label="&historyRestoreLastSession.label;"
+                  oncommand="restoreLastSession();"
+                  disabled="true"/>
         <menu id="appmenu_recentlyClosedTabsMenu"
-            class="recentlyClosedTabsMenu"
-            label="&historyUndoMenu.label;"
-            disabled="true">
+              class="recentlyClosedTabsMenu"
+              label="&historyUndoMenu.label;"
+              disabled="true">
           <menupopup id="appmenu_recentlyClosedTabsMenupopup"
-              onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoSubmenu();"/>
+                     onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoSubmenu();"/>
         </menu>
         <menu id="appmenu_recentlyClosedWindowsMenu"
-            class="recentlyClosedWindowsMenu"
-            label="&historyUndoWindowMenu.label;"
-            disabled="true">
+              class="recentlyClosedWindowsMenu"
+              label="&historyUndoWindowMenu.label;"
+              disabled="true">
           <menupopup id="appmenu_recentlyClosedWindowsMenupopup"
-              onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoWindowSubmenu();"/>
+                     onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoWindowSubmenu();"/>
         </menu>
       </menupopup>
     </menu>
     <menuitem id="appmenu_downloads"
-        class="menuitem-tooltip"
-        label="&downloads.label;"
-        command="Tools:Downloads"
-        insertafter="appmenu_history"/>
+              class="menuitem-tooltip"
+              label="&downloads.label;"
+              command="Tools:Downloads"
+              insertafter="appmenu_history"/>
     <menuitem id="appmenu_addons"
-        class="menuitem-iconic menuitem-iconic-tooltip"
-        label="&addons.label;"
-        command="Tools:Addons"
-        insertafter="appmenu_downloads"/>
+              class="menuitem-iconic menuitem-iconic-tooltip"
+              label="&addons.label;"
+              command="Tools:Addons"
+              insertafter="appmenu_downloads"/>
     <menuitem id="appmenu_preferences"
-            label="&preferencesCmdUnix.label;"
-            oncommand="openPreferences();"
-            insertafter="appmenu_addons"/>
+              label="&preferencesCmdUnix.label;"
+              oncommand="openPreferences();"
+              insertafter="appmenu_addons"/>
     <menuseparator class="appmenu-menuseparator"/>
     <menu id="appmenu_help"
-        label="&helpMenu.label;">
+          label="&helpMenu.label;">
       <menupopup id="appmenu_helpMenupopup">
         <menuitem id="appmenu_openHelp"
-            label="&helpMenu.label;"
-            oncommand="openHelpLink('firefox-help')"
-            onclick="checkForMiddleClick(this, event);"/>
+                  label="&helpMenu.label;"
+                  oncommand="openHelpLink('firefox-help')"
+                  onclick="checkForMiddleClick(this, event);"/>
         <menuitem id="appmenu_gettingStarted"
-            label="&appMenuGettingStarted.label;"
-            oncommand="gBrowser.loadOneTab('http://www.mozilla.com/firefox/central/', {inBackground: false});"
-            onclick="checkForMiddleClick(this, event);"/>
+                  label="&appMenuGettingStarted.label;"
+                  oncommand="gBrowser.loadOneTab('http://www.mozilla.com/firefox/central/', {inBackground: false});"
+                  onclick="checkForMiddleClick(this, event);"/>
         <menuitem id="appmenu_troubleshootingInfo"
-            label="&helpTroubleshootingInfo.label;"
-            oncommand="openTroubleshootingPage()"
-            onclick="checkForMiddleClick(this,event);"/>
+                  label="&helpTroubleshootingInfo.label;"
+                  oncommand="openTroubleshootingPage()"
+                  onclick="checkForMiddleClick(this,event);"/>
         <menuitem id="appmenu_feedbackPage"
-        label="&helpFeedbackPage.label;"
-            oncommand="openFeedbackPage()"
-            onclick="checkForMiddleClick(this, event);"/>
+                  label="&helpFeedbackPage.label;"
+                  oncommand="openFeedbackPage()"
+                  onclick="checkForMiddleClick(this, event);"/>
         <menuseparator/>
         <menuitem id="appmenu_safeMode"
-            label="&appMenuSafeMode.label;"
-            oncommand="safeModeRestart();"/>
+                  label="&appMenuSafeMode.label;"
+                  oncommand="safeModeRestart();"/>
         <menuseparator/>
         <menuitem id="appmenu_about"
-            label="&aboutProduct.label;"
-            oncommand="openAboutDialog();"/>
+                  label="&aboutProduct.label;"
+                  oncommand="openAboutDialog();"/>
       </menupopup>
     </menu>
     <menuseparator class="appmenu-menuseparator"/>
     <menuitem id="appmenu_close"
-            class="menuitem-iconic-tooltip"
-            command="cmd_close"
-            key="key_close"
-            label="&closeCmd.label;"
-            accesskey="&closeCmd.accesskey;"/>
+              class="menuitem-iconic-tooltip"
+              command="cmd_close"
+              key="key_close"
+              label="&closeCmd.label;"
+              accesskey="&closeCmd.accesskey;"/>
     
     <!-- Separators -->
     <menuseparator class="appmenu-menuseparator" insertafter="appmenu_downloads"/>
