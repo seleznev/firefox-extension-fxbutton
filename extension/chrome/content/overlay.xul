@@ -99,6 +99,7 @@
         <menuitem id="appmenu_showAllHistory"
                   label="&showAllHistoryCmd2.label;"
                   command="Browser:ShowAllHistory"/>
+        <menuseparator/>
         <menuitem id="appmenu_sanitizeHistory"
                   label="&clearRecentHistory.label;"
                   key="key_sanitize"
@@ -128,6 +129,7 @@
           <menupopup id="appmenu_recentlyClosedWindowsMenupopup"
                      onpopupshowing="document.getElementById('appmenu_history')._placesView.populateUndoWindowSubmenu();"/>
         </menu>
+        <menuseparator class="hide-if-empty-places-result"/>
       </menupopup>
     </menu>
     <menuitem id="appmenu_downloads"
