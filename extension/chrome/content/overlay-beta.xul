@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
+%browserDTD;
+]>
+
+<overlay id="fxbutton-beta"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <menuitem id="appmenu_newTab" removeelement="true"/>
+  
+  <vbox id="appmenuPrimaryPane">
+    <menuitem id="appmenu_newTab"
+              label="&tabCmd.label;"
+              command="cmd_newNavigatorTab"
+              insertbefore="appmenu_newPrivateWindow"/>
+    <menuitem id="appmenu_newNavigator"
+              label="&newNavigatorCmd.label;"
+              command="cmd_newNavigator"
+              insertbefore="appmenu_newPrivateWindow"/>
+  </vbox>
+  
+</overlay>
