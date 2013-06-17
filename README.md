@@ -10,4 +10,4 @@ Please visit extension's page on [addons.mozilla.org](https://addons.mozilla.org
 
 ## Screenshot
 
-![Screenshot](firefox-extension-fxbutton/raw/master/screenshots/screenshot.png)
+![Screenshot](https://raw.github.com/seleznev/firefox-extension-fxbutton/master/screenshots/screenshot.png)
