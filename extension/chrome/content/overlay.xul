@@ -28,7 +28,11 @@
     <menuitem id="appmenu_newTab"
               label="&tabCmd.label;"
               command="cmd_newNavigatorTab"
-              insertbefore="appmenu_privateBrowsing"/>
+              insertbefore="appmenu_newPrivateWindow"/>
+    <menuitem id="appmenu_newNavigator"
+              label="&newNavigatorCmd.label;"
+              command="cmd_newNavigator"
+              insertbefore="appmenu_newPrivateWindow"/>
     <menu id="appmenu_print"
           iconic="true"
           label="&printCmd.label;"

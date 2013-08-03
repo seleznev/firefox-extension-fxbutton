@@ -3,5 +3,3 @@ skin      fxbutton  classic/1.0  chrome/skin/
 
 overlay chrome://browser/content/browser.xul chrome://fxbutton/content/overlay.xul
 overlay chrome://global/content/customizeToolbar.xul chrome://fxbutton/content/customizeToolbarOverlay.xul
-
-overlay chrome://browser/content/browser.xul chrome://fxbutton/content/overlay-beta.xul appversion>=20a1
