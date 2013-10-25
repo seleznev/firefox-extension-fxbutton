@@ -6,9 +6,13 @@
 
 /* Toolbar button */
 
+#TabsToolbar #appmenu-toolbar-button:not(:first-child),
+toolbar:not(#TabsToolbar) #appmenu-toolbar-button {
+  list-style-image: url(chrome://branding/content/icon16.png);
+}
+
 #TabsToolbar #appmenu-toolbar-button:not(:first-child) > .toolbarbutton-icon,
 toolbar:not(#TabsToolbar) #appmenu-toolbar-button > .toolbarbutton-icon {
-  list-style-image: url(chrome://branding/content/icon16.png);
   display: block;
   -moz-margin-end: 0;
 }
