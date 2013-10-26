@@ -1,6 +1,6 @@
 # FxButton
 
-Add button with appmenu (like GNOME Web / Google Chrome) and hide the default "Firefox" button.
+Change menu and give an opportunity to move "Firefox" button.
 
 Use left click to open appmenu and middle click to open new tab.
 
