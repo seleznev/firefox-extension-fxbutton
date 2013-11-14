@@ -6,21 +6,21 @@
 
 /* Toolbar button */
 
-#TabsToolbar #appmenu-toolbar-button:not(:first-child),
-toolbar:not(#TabsToolbar) #appmenu-toolbar-button {
+#appmenu-toolbar-button.toolbarbutton-1 {
   list-style-image: url(chrome://branding/content/icon16.png);
 }
 
-#TabsToolbar #appmenu-toolbar-button:not(:first-child) > .toolbarbutton-icon,
-toolbar:not(#TabsToolbar) #appmenu-toolbar-button > .toolbarbutton-icon {
-  display: block;
+#appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-icon {
+  display: none;
+}
+
+#appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-icon {
+  display: -moz-box;
   -moz-margin-end: 0;
 }
 
-#TabsToolbar #appmenu-toolbar-button:not(:first-child) > .toolbarbutton-text,
-toolbar:not(#TabsToolbar) #appmenu-toolbar-button > .toolbarbutton-text,
-#TabsToolbar #appmenu-toolbar-button:not(:first-child) > .toolbarbutton-menu-dropmarker,
-toolbar:not(#TabsToolbar) #appmenu-toolbar-button > .toolbarbutton-menu-dropmarker {
+#appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-text,
+#appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-menu-dropmarker {
   display: none;
 }
 

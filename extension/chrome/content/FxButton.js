@@ -13,6 +13,13 @@ var FxButton = {
         appmenu.classList.add("fxbutton");
         appmenu.addEventListener("click", FxButton.onClick);
         
+        var tabsToolbarObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(FxButton.updateClass);
+        });
+        tabsToolbarObserver.observe(document.getElementById("TabsToolbar"), { attributes: true, attributeFilter: ["currentset"] });
+        
+        FxButton.updateClass(null);
+        
         let appmenu_vbox = document.getElementById("appmenuPrimaryPane");
         
         /* New private window */
@@ -105,6 +112,24 @@ var FxButton = {
         document.getElementById("appmenu-editmenu").remove();
         document.getElementById("appmenuSecondaryPane").remove();
         document.getElementById("appmenu-quit").remove();
+    },
+    
+    updateClass: function(mutation) {
+        var appmenu = document.getElementById("appmenu-toolbar-button");
+        var tabsbar = document.getElementById("TabsToolbar");
+        
+        var currentset = tabsbar.getAttribute("currentset");
+        if (!currentset)
+            currentset = tabsbar.getAttribute("defaultset");
+        
+        var re = new RegExp("^appmenu-toolbar-button($|,)");
+        
+        if (re.test(currentset)) {
+            appmenu.classList.remove("toolbarbutton-1");
+        }
+        else {
+            appmenu.classList.add("toolbarbutton-1");
+        }
     },
     
     onClick: function(e) {
