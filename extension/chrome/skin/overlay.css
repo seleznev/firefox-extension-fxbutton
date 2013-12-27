@@ -6,12 +6,9 @@
 
 /* Toolbar button */
 
-#appmenu-toolbar-button.toolbarbutton-1 {
+#appmenu-toolbar-button.toolbarbutton-1,
+toolbar[customizing] #appmenu-toolbar-button {
   list-style-image: url(chrome://branding/content/icon16.png);
-}
-
-#appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-icon {
-  display: none;
 }
 
 #appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-icon {
@@ -20,7 +17,9 @@
 }
 
 #appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-text,
-#appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-menu-dropmarker {
+toolbar[customizing] #appmenu-toolbar-button > .toolbarbutton-text,
+#appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-menu-dropmarker,
+toolbar[customizing] #appmenu-toolbar-button > .toolbarbutton-menu-dropmarker {
   display: none;
 }
 
