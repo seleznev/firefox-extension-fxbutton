@@ -8,7 +8,12 @@
 
 #appmenu-toolbar-button.toolbarbutton-1,
 toolbar[customizing] #appmenu-toolbar-button {
-  list-style-image: url(chrome://branding/content/icon16.png);
+  list-style-image: url(chrome://fxbutton/skin/appmenu-24.png);
+}
+
+toolbar[iconsize="small"] #appmenu-toolbar-button.toolbarbutton-1,
+toolbar[iconsize="small"][customizing] #appmenu-toolbar-button {
+  list-style-image: url(chrome://fxbutton/skin/appmenu-16.png);
 }
 
 #appmenu-toolbar-button.toolbarbutton-1 > .toolbarbutton-icon {
