@@ -2,7 +2,7 @@
 
 Change menu and give an opportunity to move the Firefox button.
 
-Please visit extension's page on [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/fxbutton/) for install latest stable version. Also, it is good place for you positive reviews. For post bug reports and feature requests please use [issues page](https://github.com/seleznev/firefox-extension-fxbutton/issues).
+**Warning!** This extension doesn't work since **Firefox 29**. And I don't have plans to update them. I'm sorry.
 
 ## Tips and tricks
 
